@@ -22,4 +22,11 @@ Route::get('/help', 'StaticPagesController@help')->name('help');
 Route::get('/about', 'StaticPagesController@about')->name('about');
 // 注册页
 Route::get('signup', 'UsersController@create')->name('signup');
+// 用户页
 Route::resource('users', 'UsersController');
+// 显示登录页
+Route::get('login', 'SessionsController@create')->name('login');
+// 创建新会话（登陆）
+Route::post('login', 'SessionsController@store')->name('login');
+// 销毁会话（退出登录）
+Route::delete('logout', 'SessionsController@destroy')->name('logout');
